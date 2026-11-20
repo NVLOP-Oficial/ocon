@@ -138,10 +138,16 @@ footer img{height:36px;opacity:.4}
 .vid-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .vid{min-width:0;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000;border:1px solid var(--border);filter:saturate(1.1)}
 @media(max-width:768px){.vid-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px}.vid{flex:none;width:62vw;scroll-snap-align:center}}
-.yt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.yt-box{position:relative;aspect-ratio:16/9;border:1px solid var(--border);background:#000}
-.yt-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(max-width:768px){.yt-grid{grid-template-columns:1fr}}
+.yt-wrap{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:12px;margin-top:20px;align-items:start}
+.yt-main{position:relative;aspect-ratio:16/9;border:1px solid var(--border);background:#000}
+.yt-main iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-list{display:flex;flex-direction:column;gap:6px;overflow-y:auto;border:1px solid var(--border);background:var(--card);padding:6px;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.yt-item{display:flex;gap:10px;align-items:center;padding:5px;border:1px solid transparent;background:none;color:var(--text);text-align:left;cursor:pointer;font:inherit;transition:border-color .2s,background .2s}
+.yt-item:hover,.yt-item.on{border-color:var(--accent);background:rgba(0,200,220,.07)}
+.yt-item img{width:112px;aspect-ratio:16/9;object-fit:cover;flex:none}
+.yt-item span{font-size:11px;line-height:1.4;color:var(--dim)}
+.yt-item.on span{color:var(--text)}
+@media(max-width:768px){.yt-wrap{grid-template-columns:1fr}.yt-list{max-height:340px}}
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:8px}
 .draft-tag{position:fixed;right:16px;bottom:16px;z-index:150;padding:9px 14px;background:rgba(5,10,16,.88);border:1px solid var(--accent);color:var(--accent);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-family:'Orbitron',sans-serif}
 @media(max-width:1000px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
@@ -228,7 +234,18 @@ v.forEach(function(x){io.observe(x);});})();
   <div class="sec-label">Música</div>
   <div class="music-embed">
     <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/djocon&color=%2300c8dc&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false"></iframe>
-    <div class="yt-grid"><div class="yt-box"><iframe src="https://www.youtube-nocookie.com/embed/6iwWHxv_yHw" title="Driving Techno | Miami 95N" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="yt-box"><iframe src="https://www.youtube-nocookie.com/embed/YgUJtlyWBHU" title="NSC @ Rave Terrace" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+    <div class="yt-wrap" id="ytw">
+      <div class="yt-main"><iframe id="ytf" src="https://www.youtube-nocookie.com/embed/6iwWHxv_yHw?rel=0" title="OCON en YouTube" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <div class="yt-list" id="ytl"><button type="button" class="yt-item on" data-id="6iwWHxv_yHw"><img src="https://i.ytimg.com/vi/6iwWHxv_yHw/mqdefault.jpg" alt="" loading="lazy"><span>Driving Techno | Miami 95N — OCON [Techno Live Mix]</span></button><button type="button" class="yt-item" data-id="RjnxOg7NJHI"><img src="https://i.ytimg.com/vi/RjnxOg7NJHI/mqdefault.jpg" alt="" loading="lazy"><span>Tokyo - Scendi (OCON Radio Edit)</span></button><button type="button" class="yt-item" data-id="n2-JTh9K1PI"><img src="https://i.ytimg.com/vi/n2-JTh9K1PI/mqdefault.jpg" alt="" loading="lazy"><span>Modo Baile: GOD</span></button><button type="button" class="yt-item" data-id="YgUJtlyWBHU"><img src="https://i.ytimg.com/vi/YgUJtlyWBHU/mqdefault.jpg" alt="" loading="lazy"><span>NSC @ Rave Terrace | UKG, Trance, DnB, Techno &amp; Hard House Mix</span></button><button type="button" class="yt-item" data-id="SX6_Jlq3i9Y"><img src="https://i.ytimg.com/vi/SX6_Jlq3i9Y/mqdefault.jpg" alt="" loading="lazy"><span>Fred Again.. - Victory Lap (OCON Edit)</span></button><button type="button" class="yt-item" data-id="rlI1iyI-Yso"><img src="https://i.ytimg.com/vi/rlI1iyI-Yso/mqdefault.jpg" alt="" loading="lazy"><span>Summer vibes for this weekend ️</span></button><button type="button" class="yt-item" data-id="nTq_Oz9SoGk"><img src="https://i.ytimg.com/vi/nTq_Oz9SoGk/mqdefault.jpg" alt="" loading="lazy"><span>Doechii - Anxiety remix</span></button><button type="button" class="yt-item" data-id="HAwE258fQKo"><img src="https://i.ytimg.com/vi/HAwE258fQKo/mqdefault.jpg" alt="" loading="lazy"><span>You need this track in your playlist</span></button><button type="button" class="yt-item" data-id="lVJPMJwgFiQ"><img src="https://i.ytimg.com/vi/lVJPMJwgFiQ/mqdefault.jpg" alt="" loading="lazy"><span>Track ID's you didn't know you needed</span></button><button type="button" class="yt-item" data-id="NUKoNS7dezI"><img src="https://i.ytimg.com/vi/NUKoNS7dezI/mqdefault.jpg" alt="" loading="lazy"><span>Doechii - Anxiety (OCON REMIX)</span></button><button type="button" class="yt-item" data-id="1jnrQxUcNuk"><img src="https://i.ytimg.com/vi/1jnrQxUcNuk/mqdefault.jpg" alt="" loading="lazy"><span>Check out my last set !  house !</span></button><button type="button" class="yt-item" data-id="lx5N91QY6RI"><img src="https://i.ytimg.com/vi/lx5N91QY6RI/mqdefault.jpg" alt="" loading="lazy"><span>Check out my latest dj set  Track ID: Tom Enzy - Paris</span></button><button type="button" class="yt-item" data-id="HNYfbprU_C0"><img src="https://i.ytimg.com/vi/HNYfbprU_C0/mqdefault.jpg" alt="" loading="lazy"><span>Some melodic techno magic  full set on my channel</span></button><button type="button" class="yt-item" data-id="4RVXEDSLK8g"><img src="https://i.ytimg.com/vi/4RVXEDSLK8g/mqdefault.jpg" alt="" loading="lazy"><span>Epic drop in 10 secs</span></button><button type="button" class="yt-item" data-id="d7vviw6y99A"><img src="https://i.ytimg.com/vi/d7vviw6y99A/mqdefault.jpg" alt="" loading="lazy"><span>Wait for the drop</span></button></div>
+    </div>
+    <script>
+    (function(){var f=document.getElementById('ytf'),l=document.getElementById('ytl'),w=document.getElementById('ytw');if(!f)return;
+    function fit(){if(innerWidth>768)l.style.maxHeight=w.querySelector('.yt-main').offsetHeight+'px';else l.style.maxHeight='';}
+    fit();addEventListener('resize',fit);addEventListener('load',fit);
+    l.addEventListener('click',function(e){var b=e.target.closest('.yt-item');if(!b)return;
+      [].forEach.call(l.children,function(x){x.classList.remove('on');});b.classList.add('on');
+      f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?rel=0&autoplay=1';});})();
+    </script>
     <p style="margin-top:18px"><a class="rider-download" href="https://www.youtube.com/@ocondj" target="_blank" rel="noopener">▶ Ver en YouTube</a></p>
   </div>
 </div>
