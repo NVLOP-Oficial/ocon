@@ -135,6 +135,9 @@ footer img{height:36px;opacity:.4}
 
 .bio-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:1px solid var(--border);filter:saturate(1.1) contrast(1.05)}
 .gallery-grid{grid-template-columns:repeat(4,1fr)}
+.vid-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.vid{min-width:0;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000;border:1px solid var(--border);filter:saturate(1.1)}
+@media(max-width:768px){.vid-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px}.vid{flex:none;width:62vw;scroll-snap-align:center}}
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:8px}
 .draft-tag{position:fixed;right:16px;bottom:16px;z-index:150;padding:9px 14px;background:rgba(5,10,16,.88);border:1px solid var(--accent);color:var(--accent);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-family:'Orbitron',sans-serif}
 @media(max-width:1000px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
@@ -148,6 +151,7 @@ footer img{height:36px;opacity:.4}
   <a href="#" class="nav-logo">OCON</a>
   <div class="nav-links">
     <a href="#bio">Artista</a>
+    <a href="#live">En vivo</a>
     <a href="#gallery">Galería</a>
     <a href="#music">Música</a>
     <a href="#contact">Contacto</a>
@@ -188,6 +192,16 @@ footer img{height:36px;opacity:.4}
   </div>
 </div>
 
+<div class="section" id="live">
+  <div class="sec-label">En vivo</div>
+  <div class="vid-row"><video class="vid" src="assets/v1.mp4" poster="assets/v1.jpg" muted loop playsinline preload="none" aria-label="OCON en vivo"></video><video class="vid" src="assets/v2.mp4" poster="assets/v2.jpg" muted loop playsinline preload="none" aria-label="OCON en vivo"></video><video class="vid" src="assets/v3.mp4" poster="assets/v3.jpg" muted loop playsinline preload="none" aria-label="OCON en vivo"></video><video class="vid" src="assets/v4.mp4" poster="assets/v4.jpg" muted loop playsinline preload="none" aria-label="OCON en vivo"></video><video class="vid" src="assets/v5.mp4" poster="assets/v5.jpg" muted loop playsinline preload="none" aria-label="OCON en vivo"></video></div>
+</div>
+<script>
+(function(){var v=[].slice.call(document.querySelectorAll('.vid'));if(!v.length)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||!window.IntersectionObserver)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){});}else{e.target.pause();}});},{threshold:.4});
+v.forEach(function(x){io.observe(x);});})();
+</script>
 <div class="section" id="gallery">
   <div class="sec-label">Galería</div>
   <div class="gallery-grid">
