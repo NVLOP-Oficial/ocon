@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="https://ecosistemanvlop.com/epk/ocon/assets/og.jpg">
+<meta name="robots" content="noindex">
+<meta property="og:url" content="https://ecosistemanvlop.com/epk/ocon/">
+<title>OCON — DJ / Productor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050a10;
+  --card:#0a1220;
+  --text:#e0f5ff;
+  --dim:rgba(224,245,255,0.55);
+  --accent:#00c8dc;
+  --border:rgba(0,200,220,0.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Roboto Mono',monospace;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:linear-gradient(to bottom,rgba(5,10,16,.95),transparent);border-bottom:1px solid transparent;backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:4px;color:var(--text);text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:32px}
+.nav-links a{color:var(--dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}
+.nav-booking{padding:10px 22px;border:1px solid var(--accent);color:var(--accent);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .2s;font-family:'Orbitron',sans-serif;font-weight:500}
+.nav-booking:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 16px rgba(0,200,220,.4)}
+
+.hero{position:relative;height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center/cover no-repeat;animation:zoom 8s ease-out forwards;filter:saturate(1.1) contrast(1.05)}
+@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,10,16,1) 0%,rgba(5,10,16,.45) 45%,transparent 100%)}
+.hero-content{position:relative;z-index:2;padding:0 48px 72px;animation:fadeUp 1.2s ease-out .3s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.hero-name{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(56px,9vw,128px);line-height:.95;letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 32px rgba(0,200,220,.2)}
+.hero-sub{margin-top:20px;font-size:12px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;font-weight:300}
+.hero-actions{margin-top:32px;display:flex;gap:14px;align-items:center}
+.btn-primary{padding:14px 32px;background:var(--accent);color:var(--bg);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-family:'Orbitron',sans-serif;font-weight:500;transition:all .2s}
+.btn-primary:hover{box-shadow:0 0 16px rgba(0,200,220,.5)}
+.btn-ghost{padding:14px 32px;border:1px solid var(--border);color:var(--text);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-family:'Orbitron',sans-serif;font-weight:500;transition:border-color .2s}
+.btn-ghost:hover{border-color:var(--accent)}
+
+.section{padding:90px 48px;max-width:1200px;margin:0 auto}
+.sec-label{font-family:'Orbitron',sans-serif;font-weight:500;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:48px;display:flex;align-items:center;gap:16px}
+.sec-label::before{content:'//';color:var(--dim);font-family:'Roboto Mono',monospace}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.bio-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
+.bio-text{font-size:15px;line-height:1.85;color:rgba(224,245,255,.78);font-weight:300}
+.bio-text p+p{margin-top:22px}
+.bio-aside{display:flex;flex-direction:column;gap:28px}
+.bio-stat{border-top:1px solid var(--border);padding-top:18px}
+.bio-stat-label{font-family:'Orbitron',sans-serif;font-weight:500;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.bio-stat-value{font-size:13px;color:var(--text);font-weight:300}
+.bio-stat-value a{color:var(--accent);text-decoration:none}
+
+.shows-full{padding:0;max-width:100%}
+.shows-inner{padding:90px 48px 0;max-width:1200px;margin:0 auto}
+.event-block{margin-top:56px}
+.event-header{display:flex;align-items:baseline;gap:20px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.event-name{font-family:'Orbitron',sans-serif;font-weight:700;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:var(--text)}
+.event-date{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.event-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.event-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(.82) saturate(1.1);transition:filter .5s}
+.event-gallery img:hover{filter:brightness(1) saturate(1.2)}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+.gal-item{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border);transition:all .3s ease}
+.gal-item:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(0,200,220,.15)}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.9) saturate(1.1);transition:filter .4s}
+.gal-item:hover img{filter:brightness(1) saturate(1.2)}
+.gal-label{position:absolute;top:10px;left:10px;color:var(--accent);padding:3px 8px;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-family:'Orbitron',sans-serif;font-weight:500;background:rgba(5,10,16,.65);border:1px solid var(--border);backdrop-filter:blur(4px)}
+
+.music-embed{margin-top:40px;opacity:.92}
+
+.rider-type-label{font-family:'Orbitron',sans-serif;font-weight:500;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--text);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.rider-type-label span{color:var(--dim);font-size:11px;letter-spacing:1px;text-transform:none;font-weight:300;font-family:'Roboto Mono',monospace}
+.rider-type-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.rider-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3px;margin-bottom:48px}
+.rider-card{background:var(--card);border:1px solid var(--border);overflow:hidden;transition:all .2s}
+.rider-card:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(0,200,220,.15)}
+.rider-card-img{width:100%;height:160px;background:#04080d;border-bottom:1px solid var(--border);overflow:hidden}
+.rider-card-img img{width:100%;height:100%;object-fit:contain;padding:18px}
+.rider-card-body{padding:18px 20px}
+.rider-card-tag{font-family:'Orbitron',sans-serif;font-weight:500;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.rider-card-name{font-family:'Orbitron',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;color:var(--text);margin-bottom:4px}
+.rider-card-desc{font-size:11px;color:var(--dim);font-weight:300;line-height:1.5}
+.rider-download{display:inline-block;margin-top:8px;padding:14px 30px;border:1px solid var(--accent);color:var(--accent);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.rider-download:hover{background:var(--accent);color:var(--bg)}
+
+.contact-wrap{text-align:center;padding:90px 48px;border-top:1px solid var(--border)}
+.contact-title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(40px,6vw,80px);letter-spacing:6px;text-transform:uppercase;margin-bottom:14px;text-shadow:0 0 32px rgba(0,200,220,.2)}
+.contact-sub{color:var(--dim);font-size:13px;font-weight:300;margin-bottom:36px}
+.contact-email{font-size:18px;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(0,200,220,.4);padding-bottom:3px;transition:opacity .2s}
+.contact-email:hover{opacity:.7}
+.socials{display:flex;justify-content:center;gap:28px;margin-top:36px;flex-wrap:wrap}
+.socials a{font-family:'Orbitron',sans-serif;font-weight:500;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.socials a:hover{color:var(--accent)}
+
+footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+footer p{font-size:11px;color:rgba(224,245,255,.3);letter-spacing:1px}
+footer img{height:36px;opacity:.4}
+
+@media(max-width:768px){
+  nav{padding:18px 20px}
+  .nav-links{display:none}
+  .nav-logo{font-size:13px;letter-spacing:2px}
+  .nav-booking{padding:8px 16px;font-size:10px}
+  .hero-content{padding:0 24px 48px}
+  .hero-actions{flex-wrap:wrap}
+  .section{padding:64px 24px}
+  .bio-grid{grid-template-columns:1fr;gap:40px}
+  .shows-inner{padding:64px 24px 0}
+  .event-gallery{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .rider-cards{grid-template-columns:1fr 1fr}
+  .contact-wrap{padding:64px 24px}
+  footer{flex-direction:column;gap:14px;text-align:center;padding:24px}
+}
+
+/* nvlop-credit */
+.nvlop-credit{--nv-ink:var(--accent);--nv-dim:var(--dim);font-size:10px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;text-transform:uppercase;white-space:nowrap;opacity:.85;transition:opacity .25s}
+.nvlop-credit .nv-by{font-size:.9em;letter-spacing:.24em;color:var(--nv-dim);font-weight:400}
+.nvlop-credit .nv-mark{width:11px;height:11px;position:relative;flex:none;color:var(--nv-ink)}
+.nvlop-credit .nv-mark::before,.nvlop-credit .nv-mark::after{content:"";position:absolute;inset:0}
+.nvlop-credit .nv-mark::before{border:1.5px solid currentColor;transform:rotate(45deg)}
+.nvlop-credit .nv-mark::after{background:currentColor;border-radius:50%;transform:scale(.45)}
+.nvlop-credit .nv-word{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:900;font-size:1.55em;letter-spacing:.18em;line-height:1;color:var(--nv-ink);transition:letter-spacing .25s}
+.nvlop-credit:hover{opacity:1}
+.nvlop-credit:hover .nv-word{letter-spacing:.26em}
+
+.bio-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:1px solid var(--border);filter:saturate(1.1) contrast(1.05)}
+.gallery-grid{grid-template-columns:repeat(4,1fr)}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:8px}
+.draft-tag{position:fixed;right:16px;bottom:16px;z-index:150;padding:9px 14px;background:rgba(5,10,16,.88);border:1px solid var(--accent);color:var(--accent);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-family:'Orbitron',sans-serif}
+@media(max-width:1000px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr}.draft-tag{right:8px;bottom:8px;font-size:9px;letter-spacing:2px}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&text=NVLOP&display=swap" rel="stylesheet"><!-- nvlop-credit -->
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">OCON</a>
+  <div class="nav-links">
+    <a href="#bio">Artista</a>
+    <a href="#gallery">Galería</a>
+    <a href="#music">Música</a>
+    <a href="#contact">Contacto</a>
+  </div>
+  <a href="mailto:promo.ocondj@gmail.com" class="nav-booking">Booking</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">DJ / Productor · Buenos Aires, Argentina</p>
+    <h1 class="hero-name">OCON</h1>
+    <p class="hero-sub">Techno · Trance · Dark Tech &nbsp;·&nbsp; Fundador de No Signal Club</p>
+    <div class="hero-actions">
+      <a href="#music" class="btn-primary">Escuchar</a>
+      <a href="#contact" class="btn-ghost">Booking</a>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="bio">
+  <div class="sec-label">Artista</div>
+  <div class="bio-grid">
+    <div class="bio-text">
+      
+      <p>OCON es un DJ y productor argentino enfocado en variaciones del techno, el trance y el dark tech, con un sonido marcado por bajos contundentes, atmósferas oscuras y una energía de pista sostenida. Fundador de No Signal Club, impulsa una propuesta orientada a la expansión de la cultura rave.</p>
+      <p>Influenciado por estilos de sellos como Drumcode, Volta, KNTXT y Exhale, su propuesta dialoga con la nueva ola del techno global, incorporando una sensibilidad contemporánea orientada tanto al club como a la escucha.</p>
+      <p>Detrás del proyecto hay una formación académica poco común: OCON es Doctor en Ciencia Política. Esta doble identidad —intelectual y artística— se traduce en una aproximación conceptual a la música, donde cada set funciona como una experiencia que conecta cuerpo, emoción y estructura.</p>
+    </div>
+    <div class="bio-aside">
+      <img class="bio-photo" src="assets/bio.jpg" alt="OCON" loading="lazy">
+      <div class="bio-stat"><div class="bio-stat-label">Base</div><div class="bio-stat-value">Buenos Aires, Argentina</div></div>
+      <div class="bio-stat"><div class="bio-stat-label">Proyecto</div><div class="bio-stat-value">Fundador de No Signal Club</div></div>
+      <div class="bio-stat"><div class="bio-stat-label">Propuesta</div><div class="bio-stat-value">Sets precisos, potentes y diseñados para el baile.</div></div>
+      <div class="bio-stat"><div class="bio-stat-label">Bookings</div><div class="bio-stat-value"><a href="mailto:promo.ocondj@gmail.com">promo.ocondj@gmail.com</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="gallery">
+  <div class="sec-label">Galería</div>
+  <div class="gallery-grid">
+    <div class="gal-item"><img src="assets/g01.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g02.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g03.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g04.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g05.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g06.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g07.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g08.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g09.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g10.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g11.jpg" alt="OCON" loading="lazy"></div>
+    <div class="gal-item"><img src="assets/g12.jpg" alt="OCON" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="section" id="music">
+  <div class="sec-label">Música</div>
+  <div class="music-embed">
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/djocon&color=%2300c8dc&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false"></iframe>
+    <p style="margin-top:18px"><a class="rider-download" href="https://www.youtube.com/@ocondj" target="_blank" rel="noopener">▶ Ver en YouTube</a></p>
+  </div>
+</div>
+
+<div class="contact-wrap" id="contact">
+  <h2 class="contact-title">Hablemos</h2>
+  <p class="contact-sub">Bookings, colaboraciones y consultas</p>
+  <a href="mailto:promo.ocondj@gmail.com" class="contact-email">promo.ocondj@gmail.com</a>
+  <div class="socials">
+    <a href="https://www.instagram.com/ocon.dj" target="_blank">Instagram</a>
+    <a href="https://soundcloud.com/djocon" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://www.youtube.com/@ocondj" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.tiktok.com/@ocondj" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://linktr.ee/ocon.dj" target="_blank" rel="noopener">Linktree</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 OCON · Buenos Aires, Argentina</p>
+  
+<a class="nvlop-credit" href="https://ecosistemanvlop.com" target="_blank" rel="noopener" aria-label="Powered by NVLOP"><span class="nv-by">Powered by</span><i class="nv-mark"></i><b class="nv-word">NVLOP</b></a></footer>
+
+<div class="draft-tag">Borrador · Presskit</div>
+</body>
+</html>
